@@ -1,4 +1,5 @@
 {% extends 'pizza/base.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
 
@@ -7,7 +8,13 @@
 
     <form enctype="multipart/form-data" action="{% url 'order' %}" method = "POST">
         {% csrf_token %}
-        {{ pizzaform.as_p }}
+        <div class = "form-group">
+            {% for field in pizzaform %}
+                {{ field.errors }}
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+            {% endfor %}
+        </div>  
         <button type="submit" class = "btn btn-outline-info">order</button>
 
     </form>

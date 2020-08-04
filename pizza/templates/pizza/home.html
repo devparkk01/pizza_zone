@@ -1,6 +1,10 @@
 {% extends 'pizza/base.html' %}
+{% load static %}
 
 {% block content %}
-    <a href="{% url 'order' %}">Click here to order</a>
+    <div >
+    <img style = "max-width: 650px ; width : 90vw ; height : 60vh ; " src="{% static 'pizzz.jpeg' %}" alt="Not available">
+    </div>  
+    <!-- <a href="{% url 'order' %}">Click here to order</a> -->
 
-{% endblock content %}
+{% endblock content %} 
